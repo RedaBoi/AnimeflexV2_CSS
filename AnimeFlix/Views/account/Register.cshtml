@@ -1,0 +1,213 @@
+﻿@model RegisterViewModel
+
+@{ ViewBag.Title = "User Registration"; }
+
+<br />
+<br />
+
+
+<style>
+    .border-md {
+        border-width: 2px;
+    }
+
+    .main-container {
+        background-image: url(https://drive.google.com/uc?id=1C51QmfACytjiHzR2-OvcNHOGU9Dds6ol);
+        background-size: cover;
+    }
+
+    body {
+        min-height: 100vh;
+    }
+
+
+    .form-control:not(select) {
+        padding: 1.5rem 0.5rem;
+    }
+
+    select .form-control {
+        height: 52px;
+        padding-left: 0.5rem;
+    }
+
+    .form-control::placeholder {
+        color: #ccc;
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+    }
+
+
+
+    .container img {
+        width: 500px;
+        margin-left: -100px;
+    }
+
+    .fas {
+        color: black;
+    }
+</style>
+<!--
+<section class="main-container">
+    <div class="container">
+        <div class="row py-5 mt-4 align-items-center">
+            <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+                <img src="~/images/register.png" alt="Register">
+            </div>
+            <div class="col-md-7 col-lg-6 ml-auto">
+                <form method="post">
+                    <div class="container">
+                        <div class="card">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                        </div>
+                        <br><br>
+                        <div class="row">
+                        </div>
+                        <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-envelope text-muted"></i>
+                                </span>
+                            </div>
+                            <input asp-for="Email" id="email" type="email" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md" />
+                        </div>
+
+                        <div class="input-group col-lg-6 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-lock text-muted"></i>
+                                </span>
+                            </div>
+                            <input asp-for="Password" id="password" type="password" name="password" placeholder="Password" class="form-control bg-white border-left-0 border-md" />
+                        </div>
+
+                        <div class="input-group col-lg-6 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-lock text-muted"></i>
+                                </span>
+                            </div>
+                            <input asp-for="ConfirmPassword" id="passwordConfirmation" type="password" name="passwordConfirmation" placeholder="Confirm Password" class="form-control bg-white border-left-0 border-md" />
+                        </div>
+
+
+                        <div class="form-group col-lg-12 mx-auto mb-0">
+                            <button type="submit" class="btn btn-dark btn-block py-2"><span class="font-weight-bold">Register</span></button>
+                        </div>
+
+
+                        <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+                            <div class="border-bottom w-100 ml-5"></div>
+                            <span class="px-2 small text-muted font-weight-bold text-muted">OR</span>
+                            <div class="border-bottom w-100 mr-5"></div>
+                        </div>
+
+
+                        <div class="text-center w-100">
+                            <a asp-controller="account" asp-action="login" class="btn btn-dark btn-block py-2"><span class="font-weight-bold">Login</span></a>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+    -->
+
+<section class="main-container">
+    <div class="container">
+        <form method="post">
+            <div class="row py-5 mt-4 align-items-center">
+                <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+                    <img src="~/images/register.png" alt="Register">
+                </div>
+                <div class="col-md-7 col-lg-6 ml-auto">
+                    <div class="container">
+                        <div class="card">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                        </div>
+                    </div>
+                    <br><br>
+                        <div class="row">
+                            <div class="input-group col-lg-12 mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                        <i class="fa fa-envelope text-muted"></i>
+                                    </span>
+                                </div>
+                                <input asp-for="Email" type="email" placeholder="Email" class="form-control bg-white border-left-0 border-md" />
+                            </div>
+
+                            <div class="input-group col-lg-5 mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                        <i class="fa fa-lock text-muted"></i>
+                                    </span>
+                                </div>
+                                <input asp-for="Password" type="password" id="pw" placeholder="Password" class="form-control bg-white border-left-0 border-md" />
+                            </div>
+                            <div class="input-group col-lg-5 mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                        <i class="fa fa-lock text-muted"></i>
+                                    </span>
+                                </div>
+                                <input asp-for="ConfirmPassword" type="password" placeholder="Confirm Password" class="form-control bg-white border-left-0 border-md" />
+
+                            </div>
+                            <div class="input-group col-lg-2 mb-4">
+                                <div class="input-group-prepend">
+                                    <span onclick="showPW()" class="input-group-text bg-white px-4 border-md ">
+                                        <i class="fas fa-eye"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="checkbox">
+                                <input type="checkbox" onclick="showPW()" /> Show Password
+                            </div>
+                            <br><br><br><br><br>
+
+
+                            <div class="form-group col-lg-12 mx-auto mb-0">
+                                <button type="submit" class="btn btn-dark btn-block py-2"><span class="font-weight-bold">Register</span></button>
+                            </div>
+
+
+                            <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+                                <div class="border-bottom w-100 ml-5"></div>
+                                <span class="px-2 small text-muted font-weight-bold text-muted">OR</span>
+                                <div class="border-bottom w-100 mr-5"></div>
+                            </div>
+
+
+                            <div class="text-center w-100">
+                                <a asp-controller="account" asp-action="login" class="btn btn-dark btn-block py-2"><span class="font-weight-bold">Login</span></a>
+                            </div>
+
+                        </div>
+                </div>
+            </div>
+        </form>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+</section>
+
+<script>
+    function showPW() {
+        var x = document.getElementById("pw");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+
+
+    }
+</script>
